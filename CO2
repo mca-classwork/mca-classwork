@@ -1,0 +1,52 @@
+class Employee {
+    int Empid;
+    String Name;
+    double Salary;
+    String Address;
+
+    Employee(int Empid, String Name, String Address, double Salary) {
+    this.Empid = Empid;
+    this.Name = Name;
+    this.Address = Address;
+    this.Salary = Salary;
+} }
+
+//Teacher class
+class Teacher extends Employee {
+    String Department;
+    String[] subjects;
+    
+    Teacher(int Empid, String Name, String Address, double Salary, String Department, String[] subjects) {
+    super(Empid, Name, Address, Salary);
+    this.Department = Department;
+    this.subjects = subjects;
+}
+
+//Display all data members
+public void display() {
+    System.out.println("Empid: " + Empid);
+    System.out.println("Name: " + Name);
+    System.out.println("Address: " + Address);
+    System.out.println("Salary: " + Salary);
+    System.out.println("Department: " + Department);
+    System.out.println("Subjects Taught: " + String.join(", ", subjects));
+} }
+
+//Main class
+public class Main {
+    public static void main(String[] args) {
+        Teacher[] teachers = new Teacher[3];
+        for (int i = 0; i < 3; i++) {
+            teachers[0] = new Teacher(001, "John Doe", "123 Street, City", 50000.0, "Computer Science", new String[]{"Data Structures", "Algorithms"});
+        teachers[0].display();
+
+        // Teacher 2
+        teachers[1] = new Teacher(002, "Jane Smith", "456 Avenue, City", 55000.0, "Mathematics", new String[]{"Calculus", "Linear Algebra"});
+        teachers[1].display();
+
+        // Teacher 3
+        teachers[2] = new Teacher(003, "Richard Roe", "789 Boulevard, City", 60000.0, "Physics", new String[]{"Quantum Mechanics", "Thermodynamics"});
+        teachers[2].display();
+        }
+    }
+}
